@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <input type="text" id="content">
+    <button type="button" id="sub">Add</button>
+    <div id="result"></div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $("#sub").click(function (){
+        $.post('/add', {
+          content: $("#content").val()
+        }, function (r){
+          $("#result").text(r)
+        })
+      })
+    </script>
+  </body>
+</html>
